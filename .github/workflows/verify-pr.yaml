@@ -1,0 +1,31 @@
+name: "Publish Azure Web App"
+
+on:
+  pull_request:
+
+env:
+  BUILD_CONFIGURATION: Release
+  DOTNET_VERSION: "8.0.x"
+  AZURE_WEBAPP_PACKAGE_PATH: "Release"
+  APP_NAME: bbon-file-info
+
+jobs:
+  build-and-publish:
+    runs-on: Windows-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up .NET
+        uses: actions/setup-dotnet@v3
+        with:
+          dotnet-version: ${{ env.DOTNET_VERSION }}
+
+      - name: dotnet restore
+        run: dotnet restore
+        working-directory: src/Example.FileInfoApp
+
+      - name: dotnet build
+        run: dotnet build --configuration ${{ env.BUILD_CONFIGURATION }}
+        working-directory: src/Example.FileInfoApp
