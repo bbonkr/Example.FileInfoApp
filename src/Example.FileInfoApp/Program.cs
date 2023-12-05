@@ -24,8 +24,6 @@ builder.Services.Configure<IISServerOptions>(options =>
     options.MaxRequestBodySize = MAX_REQUEST_SIZE;
 });
 
-
-
 builder.Services
     .AddEndpointsApiExplorer()
     .AddSwaggerGen(options =>
