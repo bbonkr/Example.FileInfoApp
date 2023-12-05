@@ -9,7 +9,6 @@ env:
   BUILD_CONFIGURATION: Release
   DOTNET_VERSION: "8.0.x"
   AZURE_WEBAPP_PACKAGE_PATH: "Release"
-  APP_NAME: bbon-file-info
 
 jobs:
   build:
@@ -59,6 +58,6 @@ jobs:
         id: deploy-to-webapp
         uses: azure/webapps-deploy@v2
         with:
-          app-name: "${{ env.APP_NAME }}"
+          app-name: "${{ secrets.APP_NAME }}"
           package: .
           publish-profile: ${{ secrets.AZURE_WEB_APP_PUBLISH_PROFILE }}
