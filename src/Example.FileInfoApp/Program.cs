@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Http.Features;
 using Microsoft.Extensions.Options;
 
 const string APP_TITLE_DEFAULT = "File Information App";
-const long MAX_REQUEST_SIZE = 4L * 1024 * 1024 * 1024; // 4 GiB
+const long MAX_REQUEST_SIZE = 100 * 1024 * 1024; // 100 MiB
 
 var builder = WebApplication.CreateBuilder(args);
 
