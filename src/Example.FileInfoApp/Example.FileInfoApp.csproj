@@ -16,4 +16,7 @@
     <PackageReference Include="Swashbuckle.AspNetCore" Version="6.4.0" />
   </ItemGroup>
 
+  <Target Name="CopyWebConfigOnPublish" AfterTargets="Publish">
+    <Copy SourceFiles="web.config" DestinationFolder="$(PublishDir)" />
+  </Target>
 </Project>
