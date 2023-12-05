@@ -1,4 +1,4 @@
-name: "Publish Azure Web App"
+name: "Verify Pull request"
 
 on:
   pull_request:
@@ -10,7 +10,7 @@ env:
   APP_NAME: bbon-file-info
 
 jobs:
-  build-and-publish:
+  build:
     runs-on: Windows-latest
 
     steps:
