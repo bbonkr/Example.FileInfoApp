@@ -34,7 +34,7 @@ jobs:
 
       - name: dotnet publish
         run: |
-          dotnet publish src/Example.FileInfoApp/Example.FileInfoApp.csproj -c Release -a win-x86 -o ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/Example.FileInfoApp
+          dotnet publish src/Example.FileInfoApp/Example.FileInfoApp.csproj -c Release -a x86 -o ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/Example.FileInfoApp
 
       - name: Deploy Example.FileInfoApp
         uses: azure/webapps-deploy@v2
