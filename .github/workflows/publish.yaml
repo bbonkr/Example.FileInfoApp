@@ -33,7 +33,7 @@ jobs:
 
       - name: dotnet publish
         run: |
-          dotnet publish src/Example.FileInfoApp/Example.FileInfoApp.csproj -c Release -a x86 --self-contained true -o ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/myapp
+          dotnet publish src/Example.FileInfoApp/Example.FileInfoApp.csproj -c Release -a x86 -o ${{ env.AZURE_WEBAPP_PACKAGE_PATH }}/myapp
 
       - name: Upload artifact for deployment job
         uses: actions/upload-artifact@v3
