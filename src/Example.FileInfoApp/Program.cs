@@ -18,12 +18,12 @@ builder.Services.AddOptions<AppConfiguration>()
         configuration.GetSection(AppConfiguration.Name).Bind(options);
     });
 
-#if !DEBUG
+
 builder.Services.Configure<IISServerOptions>(options =>
 {
     options.MaxRequestBodySize = MAX_REQUEST_SIZE;
 });
-#endif
+
 
 
 builder.Services
@@ -57,16 +57,16 @@ builder.Services.Configure<FormOptions>(options =>
     options.MultipartBodyLengthLimit = MAX_REQUEST_SIZE;
 });
 
-builder.WebHost
-    .ConfigureKestrel(options =>
-    {
-        options.Limits.MaxRequestBodySize = MAX_REQUEST_SIZE;
-        options.Limits.KeepAliveTimeout = TimeSpan.FromMinutes(15); // 15 Minutes
-    })
-#if !DEBUG
-    .UseIISIntegration()
-#endif
-    ;
+// builder.WebHost
+//     .ConfigureKestrel(options =>
+//     {
+//         options.Limits.MaxRequestBodySize = MAX_REQUEST_SIZE;
+//         options.Limits.KeepAliveTimeout = TimeSpan.FromMinutes(15); // 15 Minutes
+//     })
+// #if !DEBUG
+//     .UseIISIntegration()
+// #endif
+//     ;
 
 var app = builder.Build();
 
