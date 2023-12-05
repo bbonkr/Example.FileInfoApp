@@ -8,7 +8,7 @@ namespace Example.FileInfoApp;
 /// </summary>
 [Area("api")]
 [ApiController]
-[Route("v{version:apiVersion}/[controller]")]
+[Route("[area]/v{version:apiVersion}/[controller]")]
 [ApiVersion(1.0)]
 public class FilesController : ControllerBase
 {
